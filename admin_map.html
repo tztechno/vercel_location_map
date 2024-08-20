@@ -89,6 +89,7 @@
         var lon0 = 139.6917;
         var map;
         var currentMarker;
+        
         //summarize.gs
         var webAppUrl1 = 'https://script.google.com/macros/s/AKfycbzFFeGvIhh9q85dHWTQXkAXbPNRbjJXX4wTqMJr72YLX228mXaruFL9P3oVSkGB1K5b/exec';
         //getdata.gs
@@ -148,7 +149,8 @@
                 map.removeLayer(currentMarker);
             }
             currentMarker = L.marker([lat0, lon0]).addTo(map)
-                .bindPopup("<b>HERE!</b>");
+                .bindPopup("<b>HERE!</b>")
+                .openPopup();
         }
 
         function summarize() {

@@ -76,7 +76,7 @@
 <body>
     <div id="map"></div>
     <div id="controls">
-        <button onclick="clear()">Stop Tracking</button>
+        <button onclick="stopTracking()">Stop Tracking</button>
         <button onclick="sendLocationToGAS()">Send Location</button>
         <input type="text" id="username" placeholder="Enter your name" />
     </div>
@@ -94,8 +94,11 @@
             watch_id = navigator.geolocation.watchPosition(test2, function (e) { alert(e.message); }, { "enableHighAccuracy": true, "timeout": 20000, "maximumAge": 2000 });
         }
 
-        function clear() {
-            navigator.geolocation.clearWatch(watch_id);
+        function stopTracking() {
+            if (watch_id) {
+                navigator.geolocation.clearWatch(watch_id);
+                watch_id = null;
+            }
         }
 
         function test2(position) {

@@ -75,7 +75,7 @@
 <body>
     <div id="map"></div>
     <div id="controls">
-        <button onclick="stopTracking()" aria-label="Stop tracking location">Stop</button>
+        <button onclick="stopTracking()" aria-label="Stop tracking location">Stop Tracking</button>
         <button onclick="summarize()" aria-label="Summarize location data">Summarize</button>
         <button onclick="getPoints()" aria-label="Get all location points">Get Points</button>
     </div>
@@ -89,9 +89,12 @@
         var lon0 = 139.6917;
         var map;
         var currentMarker;
-
-        var webAppUrl1 = 'https://script.google.com/macros/s/AKfycby27KLioqN1czUaglDn2d2_HHOUIhgu8Cd4_iDoha-IkStEIP6Z9pMMjo6gN1oEdYmh/exec';
-        var webAppUrl2 = 'https://script.google.com/macros/s/AKfycbyfnJ80Bn0oN68e2ey_25gnllyS0_Ep2hAmfRHPg9sFNQlCMyGGi_igvTiJFjrXuCi1/exec';
+        
+        //summarize.gs
+        var webAppUrl1 = 'https://script.google.com/macros/s/AKfycbzFFeGvIhh9q85dHWTQXkAXbPNRbjJXX4wTqMJr72YLX228mXaruFL9P3oVSkGB1K5b/exec';
+        //getdata.gs
+        var webAppUrl2 = 'https://script.google.com/macros/s/AKfycbzM_L8Xzrp5jxXgFGeTqdY77pduSgnO7Lw-GKQACiSC08L13TSAT7bwelKhRQMyhaqj/exec'
+        //old 'https://script.google.com/macros/s/AKfycbyfnJ80Bn0oN68e2ey_25gnllyS0_Ep2hAmfRHPg9sFNQlCMyGGi_igvTiJFjrXuCi1/exec';
 
         function startTracking() {
             watch_id = navigator.geolocation.watchPosition(

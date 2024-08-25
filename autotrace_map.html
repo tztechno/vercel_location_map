@@ -91,7 +91,7 @@
         var map;
         var currentMarker;
         var intervalId;
-        var remainingTime = 30; // 残り時間（分）
+        var remainingTime = 60; // 残り時間（分）
 
         function startTracking() {
             var name = document.getElementById('username').value;
@@ -102,11 +102,11 @@
 
             watch_id = navigator.geolocation.watchPosition(updatePosition, handleLocationError, { "enableHighAccuracy": true, "timeout": 20000, "maximumAge": 2000 });
 
-            // 1分ごとに位置情報を送信
-            intervalId = setInterval(sendLocationToGAS, 1 * 60 * 1000);
+            // 3分ごとに位置情報を送信
+            intervalId = setInterval(sendLocationToGAS, 3 * 60 * 1000);
 
-            // 30分後に停止
-            setTimeout(stopTracking, 30 * 60 * 1000);
+            // 60分後に停止
+            setTimeout(stopTracking, 60 * 60 * 1000);
 
             // 残り時間の更新を開始
             updateRemainingTime();
